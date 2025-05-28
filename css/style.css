@@ -26,9 +26,31 @@ body {
 
 .header-container {
   display: flex;
-  align-items: center;  /* Alinha verticalmente */
-  justify-content: space-between; /* Logo à esquerda, menu à direita */
+  align-items: center;
+  justify-content: space-between;
   padding: 20px 0;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espaço entre logo e texto */
+}
+
+
+.logo-img {
+  width: 50px; /* ajuste o tamanho da logo */
+  height: auto;
+}
+
+.logo-text {
+  color: #FFD700;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.logo-fixed {
+  position: static; /* ou simplesmente remova essa classe do HTML */
 }
 
 .logo {
@@ -38,13 +60,11 @@ body {
   height: auto;
 }
 
-
 .logo {
   width: 150px; 
   height: auto;
   display: block;
 }
-
 
 .nav ul {
   list-style: none;
