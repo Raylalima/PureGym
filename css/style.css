@@ -1,4 +1,4 @@
-/* Reset básico */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@ body {
   margin: auto;
 }
 
-/* Cabeçalho */
+/* Header */
 .header {
   background-color: #000;
   padding: 20px 0;
@@ -26,21 +26,26 @@ body {
 
 .header-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 10px; /* espaço entre logo e texto */
+  gap: 10px;
 }
 
-
 .logo-img {
-  width: 50px; /* ajuste o tamanho da logo */
+  width: 120px; /* Aumentado */
   height: auto;
+  opacity: 0.85; /* Transparência aplicada */
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
 }
 
 .logo-text {
@@ -49,28 +54,11 @@ body {
   font-weight: bold;
 }
 
-.logo-fixed {
-  position: static; /* ou simplesmente remova essa classe do HTML */
-}
-
-.logo {
-  color: #FFD700;
-  font-size: 2em;
-  width: 150px;
-  height: auto;
-}
-
-.logo {
-  width: 150px; 
-  height: auto;
-  display: block;
-}
-
 .nav ul {
   list-style: none;
   display: flex;
-  justify-content: flex-end;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .nav a {
@@ -84,80 +72,150 @@ body {
   color: #FFD700;
 }
 
-/* Hero Section */
-.hero {
-  background: url('https://images.unsplash.com/photo-1571019613914-85f342c36c5f') no-repeat center center/cover;
+/* === HERO COM CARROSSEL === */
+.hero-carousel {
+  position: relative;
   height: 90vh;
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Texto fixo do carrossel */
+.carousel-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFD700;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 90%;
+  z-index: 10;
+}
+
+.carousel-text h2 {
+  font-size: 2.5em;
+}
+
+.carousel-text p {
+  font-size: 1.2em;
+  margin: 15px 0;
+}
+
+/* Sobre com imagem */
+.sobre {
+  background-color: #222;
+  padding: 60px 20px;
+}
+
+.sobre-flex {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.sobre-texto {
+  flex: 1 1 300px;
+  color: #fff;
+}
+
+.sobre-texto h1 {
+  color: #FFD700;
+  margin-bottom: 20px;
+}
+
+.sobre-imagem {
+  flex: 1 1 300px;
   text-align: center;
 }
 
-.hero h2 {
-  font-size: 3em;
-  color: #FFD700;
+.sobre-imagem img {
+  max-width: 100%;
+  border-radius: 10px;
+  height: auto;
 }
 
-.hero p {
-  margin: 20px 0;
-  font-size: 1.2em;
+/* Planos */
+.planos {
+  background-color: #111;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.planos h1 {
+  color: #FFD700;
+  margin-bottom: 40px;
+}
+
+.planos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.plano {
+  background-color: #222;
+  flex: 1 1 300px;
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  transition: transform 0.3s ease;
+  max-width: 350px;
+}
+
+.plano:hover {
+  transform: scale(1.05);
+}
+
+.plano-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .btn {
   background-color: #FFD700;
   color: #000;
   padding: 15px 30px;
-  text-decoration: none;
   font-weight: bold;
   border-radius: 5px;
+  text-decoration: none;
   transition: background-color 0.3s;
+  display: inline-block;
 }
 
 .btn:hover {
   background-color: #e6c200;
-}
-
-/* Sobre */
-.sobre {
-  background-color: #222;
-  padding: 60px 0;
-  text-align: center;
-}
-
-.sobre h3 {
-  color: #FFD700;
-  margin-bottom: 20px;
-}
-
-/* Planos */
-.planos {
-  background-color: #111;
-  padding: 60px 0;
-  text-align: center;
-}
-
-.planos h3 {
-  color: #FFD700;
-  margin-bottom: 40px;
-}
-
-.plano {
-  background-color: #222;
-  padding: 20px;
-  margin: 10px auto;
-  max-width: 300px;
-  border-radius: 8px;
-  color: #fff;
-}
-
-/* Rodapé */
-.footer {
-  background-color: #000;
-  color: #aaa;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 0.9em;
 }
 
 .btnp {
@@ -169,9 +227,63 @@ body {
   font-weight: bold;
   border-radius: 5px;
   margin-top: 15px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
-.btn:hover {
+.btnp:hover {
   background-color: #e6c200;
+}
+
+/* Footer */
+.footer {
+  background-color: #000;
+  color: #aaa;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9em;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .carousel-text h2 {
+    font-size: 1.8em;
+  }
+
+  .carousel-text p {
+    font-size: 1em;
+  }
+
+  .sobre-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .btn, .btnp {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+.logo-img {
+  width: 160px;   /* Aumente conforme necessário */
+  height: auto;
+  opacity: 0.85;  /* Deixa levemente transparente */
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
 }

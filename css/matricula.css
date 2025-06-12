@@ -1,0 +1,122 @@
+:root {
+  --preto: #111111;
+  --cinza: #1e1e1e;
+  --amarelo: #FFD700;
+  --amarelo-hover: #e6c200;
+  --branco: #ffffff;
+  --cinza-claro: #cccccc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--preto);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--branco);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: var(--amarelo);
+  animation: fadeIn 1s ease-in-out;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: var(--cinza-claro);
+  margin-top: 0.5rem;
+}
+
+.form-section {
+  background-color: var(--cinza);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+  animation: slideUp 0.8s ease-out;
+}
+
+.form-section h2 {
+  color: var(--amarelo);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: var(--branco);
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #2c2c2c;
+  color: var(--branco);
+  transition: box-shadow 0.3s;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--amarelo);
+}
+
+form button {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: var(--amarelo);
+  color: var(--preto);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+  background-color: var(--amarelo-hover);
+  transform: scale(1.02);
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--cinza-claro);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}

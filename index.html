@@ -4,68 +4,108 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PureGym</title>
-  <link rel="stylesheet" href="/css/style.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
   <header class="header">
-  <div class="container header-container">
-    <div class="logo-area">
-      <img src="img/logo.png" alt="logo" class="logo-img">
-      <h1 class="logo-text">PureGym</h1>
+    <div class="container header-container">
+      <div class="logo-area">
+        <img src="img/PureGim.png" alt="logo" class="logo-img">
+   
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav class="nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Planos</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
 
-  <section class="hero">
-    <div class="container">
+  <!-- HERO COM CARROSSEL -->
+<section id="home" class="hero-carousel">
+  <div class="carousel">
+    <div class="slide active" style="background-image: url('img/carrossel.jpg');"></div>
+    <div class="slide" style="background-image: url('img/mulher.jpg');"></div>
+    <div class="slide" style="background-image: url('img/carrossel.jpg');"></div>
+
+    <div class="carousel-text">
       <h2>Transforme seu corpo com a PureGym</h2>
       <p>Treine com os melhores equipamentos e profissionais qualificados.</p>
       <a href="matricula.html" class="btn">Matricule-se agora</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="sobre">
-    <div class="container">
-      <h3>Sobre a PureGym</h3>
-      <p>A PureGym é uma academia moderna que oferece uma estrutura completa, ambiente motivador e profissionais capacitados para ajudar você a alcançar seus objetivos.</p>
+  <!-- SOBRE COM IMAGEM -->
+  <section id="sobre" class="sobre">
+    <div class="container sobre-flex">
+      <div class="sobre-texto">
+        <h1>Sobre a PureGym</h1>
+        <p>A PureGym é uma academia moderna e inovadora que proporciona uma estrutura completa e de alta qualidade, pensada para atender todas as suas necessidades. Com um ambiente acolhedor e motivador, além de profissionais altamente capacitados e dedicados, estamos prontos para apoiar você em cada etapa da sua jornada fitness, ajudando a alcançar seus objetivos de forma eficiente e saudável.</p>
+      </div>
+      <div class="sobre-imagem">
+        <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74" alt="Foto da academia">
+      </div>
     </div>
   </section>
 
-  <section class="planos">
+ <section id="planos" class="planos">
   <div class="container">
-    <h3>Nossos Planos</h3>
-    <div class="plano">
-      <h4>Plano Mensal</h4>
-      <p>R$ 99,90/mês</p>
-      <a href="#" class="btnp">Assinar agora</a>
-    </div>
-    <div class="plano">
-      <h4>Plano Trimestral</h4>
-      <p>R$ 269,90</p>
-      <a href="#" class="btnp">Assinar agora</a>
-    </div>
-    <div class="plano">
-      <h4>Plano Anual</h4>
-      <p>R$ 899,90</p>
-      <a href="#" class="btnp">Assinar agora</a>
+    <h1>Nossos Planos</h1>
+    <div class="planos-grid">
+      <div class="plano">
+        <img src="/img/mulher.jpg" alt="Corpo bom" class="plano-img" />
+        <h4>Plano Mensal</h4>
+        <p>R$ 99,90/mês</p>
+        <a href="#" class="btnp">Assinar agora</a>
+      </div>
+      <div class="plano">
+        <img src="/img/homem.jpg" alt="Corpo melhor" class="plano-img" />
+        <h4>Plano Trimestral</h4>
+        <p>R$ 269,90</p>
+        <a href="#" class="btnp">Assinar agora</a>
+      </div>
+      <div class="plano">
+        <img src="img/homem bombado.jpg" alt="Corpo bombado" class="plano-img" />
+        <h4>Plano Anual</h4>
+        <p>R$ 899,90</p>
+        <a href="#" class="btnp">Assinar agora</a>
+      </div>
     </div>
   </div>
 </section>
 
 
-  <footer class="footer">
+  <footer id="contato" class="footer">
     <div class="container">
       <p>&copy; 2025 PureGym. Todos os direitos reservados.</p>
       <p>Contato: (11) 99999-9999 | Instagram: @puregym</p>
     </div>
   </footer>
+
+  <!-- Script do carrossel -->
+  <script>
+    let index = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showNextSlide() {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }
+
+    setInterval(showNextSlide, 4000);
+ 
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('sucesso') === '1') {
+    alert("✅ Matrícula realizada com sucesso! Bem-vindo(a) à PureGym!");
+    history.replaceState(null, "", window.location.pathname);
+  }
+
+
+  </script>
 </body>
 </html>
